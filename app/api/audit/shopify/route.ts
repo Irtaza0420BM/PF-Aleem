@@ -35,6 +35,12 @@ interface AuditResult {
   durationMs: number
 }
 
+interface BasicNode {
+  id: string
+  handle: string
+  title: string
+}
+
 export async function GET(request: Request) {
   const startedAt = new Date().toISOString()
   const startTime = Date.now()
@@ -51,7 +57,8 @@ export async function GET(request: Request) {
     console.log(`[Shopify Audit] Fetched ${collections.length} collections`)
 
     // Fetch all pages
-    const pages = await fetchAllShopifyPages()
+    // Fetch all pages
+    const pages = await fetchAllPagesContent()
     console.log(`[Shopify Audit] Fetched ${pages.length} pages`)
 
     // Fetch blogs and articles
@@ -143,7 +150,7 @@ export async function GET(request: Request) {
 
 // Fetch all products with cursor pagination
 async function fetchAllProducts() {
-  return fetchAllShopifyPages(async (cursor) => {
+  return fetchAllShopifyPages<BasicNode, { node: BasicNode; cursor: string }>(async (cursor) => {
     const query = `
       query($cursor: String) {
         products(first: 50, after: $cursor) {
@@ -165,7 +172,7 @@ async function fetchAllProducts() {
 
     const { data } = await storefrontFetch<{
       products: {
-        edges: Array<{ cursor: string; node: any }>
+        edges: Array<{ cursor: string; node: BasicNode }>
         pageInfo: { hasNextPage: boolean; endCursor: string }
       }
     }>({ query, variables: { cursor } })
@@ -176,7 +183,7 @@ async function fetchAllProducts() {
 
 // Fetch all collections with cursor pagination
 async function fetchAllCollections() {
-  return fetchAllShopifyPages(async (cursor) => {
+  return fetchAllShopifyPages<BasicNode, { node: BasicNode; cursor: string }>(async (cursor) => {
     const query = `
       query($cursor: String) {
         collections(first: 50, after: $cursor) {
@@ -198,12 +205,45 @@ async function fetchAllCollections() {
 
     const { data } = await storefrontFetch<{
       collections: {
-        edges: Array<{ cursor: string; node: any }>
+        edges: Array<{ cursor: string; node: BasicNode }>
         pageInfo: { hasNextPage: boolean; endCursor: string }
       }
     }>({ query, variables: { cursor } })
 
     return data.collections
+  })
+}
+
+// Fetch all pages with cursor pagination
+async function fetchAllPagesContent() {
+  return fetchAllShopifyPages<BasicNode, { node: BasicNode; cursor: string }>(async (cursor) => {
+    const query = `
+      query($cursor: String) {
+        pages(first: 50, after: $cursor) {
+          edges {
+            cursor
+            node {
+              id
+              handle
+              title
+            }
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    `
+
+    const { data } = await storefrontFetch<{
+      pages: {
+        edges: Array<{ cursor: string; node: BasicNode }>
+        pageInfo: { hasNextPage: boolean; endCursor: string }
+      }
+    }>({ query, variables: { cursor } })
+
+    return data.pages
   })
 }
 
