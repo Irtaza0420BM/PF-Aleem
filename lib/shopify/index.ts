@@ -12,17 +12,26 @@ console.log("[v0] Shopify API configured:", {
   hasToken: !!SHOPIFY_STOREFRONT_ACCESS_TOKEN,
 })
 
+type NextFetchRequestConfig = {
+  revalidate?: number | false
+  tags?: string[]
+}
+
 async function shopifyFetch<T>({
   query,
   variables = {},
+  cache = "force-cache",
+  next,
 }: {
   query: string
   variables?: Record<string, any>
+  cache?: RequestCache
+  next?: NextFetchRequestConfig
 }): Promise<{ data: T; errors?: any[] }> {
   if (!SHOPIFY_STOREFRONT_ACCESS_TOKEN) {
     throw new Error(
       "Missing SHOPIFY_STOREFRONT_ACCESS_TOKEN environment variable. " +
-        "Please check your environment configuration.",
+      "Please check your environment configuration.",
     )
   }
 
@@ -42,7 +51,8 @@ async function shopifyFetch<T>({
         query,
         variables,
       }),
-      cache: "no-store",
+      cache,
+      next,
       signal: controller.signal,
     })
 
@@ -162,6 +172,7 @@ export async function getProducts({
   }>({
     query,
     variables: { first, sortKey, reverse, query: searchQuery },
+    next: { revalidate: 3600, tags: ["products"] },
   })
 
   return data.products.edges.map((edge) => ({
@@ -246,6 +257,7 @@ export async function getProduct(handle: string): Promise<ShopifyProduct | null>
   }>({
     query,
     variables: { handle },
+    next: { revalidate: 3600, tags: ["products"] },
   })
 
   console.log("[v0] Product query result:", data.product ? `Found: ${data.product.title}` : "Not found")
@@ -290,6 +302,7 @@ export async function getCollections(first = 10): Promise<ShopifyCollection[]> {
   }>({
     query,
     variables: { first },
+    next: { revalidate: 3600, tags: ["collections"] },
   })
 
   const collections = data.collections.edges.map((edge) => edge.node)
@@ -304,7 +317,7 @@ export async function getCollections(first = 10): Promise<ShopifyCollection[]> {
 export async function getCollectionProducts({
   collection,
   limit = DEFAULT_PAGE_SIZE,
-  sortKey = DEFAULT_SORT_KEY,
+  sortKey = DEFAULT_SORT_KEY as ProductCollectionSortKey,
   query: searchQuery,
   reverse = false,
 }: {
@@ -402,6 +415,7 @@ export async function getCollectionProducts({
   }>({
     query,
     variables: { handle: collection, first: limit, sortKey, query: searchQuery, reverse },
+    next: { revalidate: 3600, tags: ["collections", "products"] },
   })
 
   if (!data.collection) {
@@ -474,7 +488,7 @@ export async function createCart(): Promise<ShopifyCart> {
       cart: ShopifyCart
       userErrors: Array<{ field: string; message: string }>
     }
-  }>({ query })
+  }>({ query, cache: "no-store" })
 
   if (data.cartCreate.userErrors.length > 0) {
     throw new Error(data.cartCreate.userErrors[0].message)
@@ -548,6 +562,7 @@ export async function addCartLines(
       cartId,
       lines,
     },
+    cache: "no-store",
   })
 
   if (data.cartLinesAdd.userErrors.length > 0) {
@@ -627,6 +642,7 @@ export async function updateCartLines(
       cartId,
       lines,
     },
+    cache: "no-store",
   })
 
   if (data.cartLinesUpdate.userErrors.length > 0) {
@@ -698,6 +714,7 @@ export async function removeCartLines(cartId: string, lineIds: string[]): Promis
       cartId,
       lineIds,
     },
+    cache: "no-store",
   })
 
   if (data.cartLinesRemove.userErrors.length > 0) {
@@ -770,6 +787,7 @@ export async function getCart(cartId: string): Promise<ShopifyCart | null> {
   }>({
     query,
     variables: { cartId },
+    cache: "no-store",
   })
 
   return data.cart

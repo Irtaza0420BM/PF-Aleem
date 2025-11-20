@@ -150,26 +150,27 @@ export async function fetchAllPages<TNode, TEdge extends { node: TNode; cursor: 
 }
 
 // Revalidation helpers
+// Revalidation helpers
 export function revalidateProduct(id: string, handle?: string) {
-  revalidateTag("products")
-  revalidateTag(`product:${id}`)
-  if (handle) revalidateTag(`product:${handle}`)
+  revalidateTag("products", "layout")
+  revalidateTag(`product:${id}`, "layout")
+  if (handle) revalidateTag(`product:${handle}`, "layout")
 }
 
 export function revalidateCollection(id: string, handle?: string) {
-  revalidateTag("collections")
-  revalidateTag(`collection:${id}`)
-  if (handle) revalidateTag(`collection:${handle}`)
+  revalidateTag("collections", "layout")
+  revalidateTag(`collection:${id}`, "layout")
+  if (handle) revalidateTag(`collection:${handle}`, "layout")
 }
 
 export function revalidatePage(id: string, handle?: string) {
-  revalidateTag("pages")
-  revalidateTag(`page:${id}`)
-  if (handle) revalidateTag(`page:${handle}`)
+  revalidateTag("pages", "layout")
+  revalidateTag(`page:${id}`, "layout")
+  if (handle) revalidateTag(`page:${handle}`, "layout")
 }
 
 export function revalidateMetaobject(type: string, id: string) {
-  revalidateTag("metaobjects")
-  revalidateTag(`metaobject:${type}`)
-  revalidateTag(`metaobject:${type}:${id}`)
+  revalidateTag("metaobjects", "layout")
+  revalidateTag(`metaobject:${type}`, "layout")
+  revalidateTag(`metaobject:${type}:${id}`, "layout")
 }
