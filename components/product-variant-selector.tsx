@@ -5,6 +5,7 @@ import { useState, useMemo, useEffect } from "react"
 import type { Product, ProductVariant, ProductOption } from "@/lib/shopify/types"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils"
 
 interface ProductVariantSelectorProps {
   product: Product
@@ -48,24 +49,35 @@ export function ProductVariantSelector({ product, onVariantChange }: ProductVari
     }
   }, [selectedVariant, onVariantChange])
 
-  // Check if an option value is available
-  const isOptionValueAvailable = (optionName: string, optionValue: string): boolean => {
-    // If this option is already selected, it's available
-    if (selectedOptions[optionName] === optionValue) return true
+  // Check if an option value is available (exists) and in stock
+  const getOptionStatus = (optionName: string, optionValue: string) => {
+    // If this option is already selected, check its status based on other selections
+    // But for the button state, we want to know if selecting this *would* result in a valid variant
 
-    // Check if there's any variant with this option value
     const tempSelections = { ...selectedOptions, [optionName]: optionValue }
-    
-    return variantsArray.some((variant) => {
-      // Check if variant matches all current selections including this new one
-      return product.options.every((option) => {
+
+    let exists = false
+    let inStock = false
+
+    // Check if any variant matches this combination
+    variantsArray.forEach((variant) => {
+      const matches = product.options.every((option) => {
         const valueToCheck = tempSelections[option.name]
         if (!valueToCheck) return true // Option not selected yet, skip check
         return variant.selectedOptions.some(
           (opt) => opt.name === option.name && opt.value === valueToCheck
         )
-      }) && variant.availableForSale
+      })
+
+      if (matches) {
+        exists = true
+        if (variant.availableForSale) {
+          inStock = true
+        }
+      }
     })
+
+    return { exists, inStock }
   }
 
   const handleOptionChange = (optionName: string, optionValue: string) => {
@@ -90,8 +102,8 @@ export function ProductVariantSelector({ product, onVariantChange }: ProductVari
           <div className="flex flex-wrap gap-2">
             {option.values.map((value) => {
               const isSelected = selectedOptions[option.name] === value
-              const isAvailable = isOptionValueAvailable(option.name, value)
-              
+              const { exists, inStock } = getOptionStatus(option.name, value)
+
               return (
                 <Button
                   key={value}
@@ -99,28 +111,39 @@ export function ProductVariantSelector({ product, onVariantChange }: ProductVari
                   variant={isSelected ? "default" : "outline"}
                   size="sm"
                   onClick={() => handleOptionChange(option.name, value)}
-                  disabled={!isAvailable}
-                  className={
+                  disabled={!exists}
+                  className={cn(
+                    "transition-all duration-200",
                     isSelected
                       ? "bg-yellow-400 hover:bg-yellow-500 text-black border-yellow-400 font-semibold"
-                      : "border-gray-600 bg-transparent text-white hover:bg-gray-800 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed disabled:text-gray-500"
-                  }
+                      : "border-gray-600 bg-transparent text-white hover:bg-gray-800 hover:text-white",
+                    !exists && "opacity-30 cursor-not-allowed",
+                    !inStock && !isSelected && "opacity-50 decoration-slice", // Visual cue for OOS but selectable
+                    !inStock && isSelected && "bg-yellow-400/80" // Slightly different style for selected OOS?
+                  )}
                 >
                   {value}
+                  {!inStock && exists && <span className="ml-1 text-xs opacity-70">(OOS)</span>}
                 </Button>
               )
             })}
           </div>
         </div>
       ))}
-      
+
       {selectedVariant && (
         <div className="pt-2">
           <p className="text-sm text-gray-300">
             {selectedVariant.availableForSale ? (
-              <span className="text-green-400">✓ In Stock</span>
+              <span className="text-green-400 flex items-center gap-1">
+                <span className="h-2 w-2 rounded-full bg-green-400 inline-block" />
+                In Stock
+              </span>
             ) : (
-              <span className="text-red-400">✗ Out of Stock</span>
+              <span className="text-red-400 flex items-center gap-1">
+                <span className="h-2 w-2 rounded-full bg-red-400 inline-block" />
+                Out of Stock
+              </span>
             )}
           </p>
           {selectedVariant.price && (
