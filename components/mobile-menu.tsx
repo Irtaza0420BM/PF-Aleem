@@ -1,17 +1,12 @@
 
 
+
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "./ui/button"
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-} from "./ui/drawer"
 
 interface MobileMenuProps {
   collections: Array<{
@@ -32,7 +27,20 @@ const collectionDescriptions: Record<string, string> = {
 
 export function MobileMenu({ collections }: MobileMenuProps) {
   const [open, setOpen] = useState(false)
-  const [collectionsOpen, setCollectionsOpen] = useState(false) // Collections expand/collapse state
+  const [collectionsOpen, setCollectionsOpen] = useState(false)
+
+  // Prevent body scroll when menu opens
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   const filteredCollections = collections.filter(
     (collection) =>
@@ -57,103 +65,113 @@ export function MobileMenu({ collections }: MobileMenuProps) {
         <Menu className="h-6 w-6" />
       </Button>
 
-      {/* Mobile Drawer */}
-      <Drawer open={open} onOpenChange={setOpen}>
-        <DrawerContent className="bg-black border-yellow-400 h-[85vh]">
-          <DrawerHeader className="border-b border-yellow-400/20">
-            <div className="flex items-center justify-between">
-              <DrawerTitle className="text-yellow-400 text-xl font-bold">
-                Menu
-              </DrawerTitle>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setOpen(false)}
-                className="text-yellow-400 hover:bg-yellow-400/10"
+      {/* Backdrop Overlay */}
+      {open && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-[60] transition-opacity"
+          onClick={() => setOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu Sliding from Top */}
+      <div
+        className={`fixed top-0 left-0 right-0 w-full bg-black border-b-4 border-yellow-400 z-[70] transform transition-transform duration-300 ease-in-out ${
+          open ? 'translate-y-0' : '-translate-y-full'
+        }`}
+        style={{ maxHeight: '90vh' }}
+      >
+        {/* Header with Close Button */}
+        <div className="flex items-center justify-between p-4 border-b border-yellow-400/20">
+          <h2 className="text-yellow-400 text-xl font-bold">Menu</h2>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setOpen(false)}
+            className="text-yellow-400 hover:bg-yellow-400/10 rounded-full"
+            aria-label="Close menu"
+          >
+            <X className="h-7 w-7" />
+          </Button>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="flex flex-col p-4 space-y-2 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 70px)' }}>
+          {/* Home Link */}
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors"
+          >
+             Home
+          </Link>
+
+          {/* Shop By Collection - Collapsible */}
+          {filteredCollections.length > 0 && (
+            <div className="space-y-1">
+              {/* Toggle Button */}
+              <button
+                onClick={() => setCollectionsOpen(!collectionsOpen)}
+                className="w-full flex items-center justify-between text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors"
               >
-                <X className="h-6 w-6" />
-              </Button>
-            </div>
-          </DrawerHeader>
-
-          <nav className="flex flex-col p-4 space-y-2 overflow-y-auto">
-            {/* Home Link */}
-            <Link
-              href="/"
-              onClick={() => setOpen(false)}
-              className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors"
-            >
-               Home
-            </Link>
-
-            {/* Shop By Collection - Collapsible */}
-            {filteredCollections.length > 0 && (
-              <div className="space-y-1">
-                {/* Toggle Button */}
-                <button
-                  onClick={() => setCollectionsOpen(!collectionsOpen)}
-                  className="w-full flex items-center justify-between text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors"
-                >
-                  <span> Shop By Collection</span>
-                  {collectionsOpen ? (
-                    <ChevronUp className="h-5 w-5" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5" />
-                  )}
-                </button>
-
-                {/* Expandable Collections List */}
-                {collectionsOpen && (
-                  <div className="ml-4 space-y-1 border-l-2 border-yellow-400/20 pl-2">
-                    {filteredCollections.map((collection) => (
-                      <Link
-                        key={collection.id}
-                        href={`/collections/${collection.handle}`}
-                        onClick={() => setOpen(false)}
-                        className="block text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-2.5 rounded-lg transition-colors"
-                      >
-                        <div className="font-medium text-sm">{collection.title}</div>
-                        <div className="text-xs text-yellow-400/60 mt-0.5 line-clamp-1">
-                          {collection.description || 
-                           collectionDescriptions[collection.handle] || 
-                           "Explore our collection"}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+                <span> Shop By Collection</span>
+                {collectionsOpen ? (
+                  <ChevronUp className="h-5 w-5" />
+                ) : (
+                  <ChevronDown className="h-5 w-5" />
                 )}
-              </div>
-            )}
+              </button>
 
-            {/* Magic Pickleball - Special */}
-            <Link
-              href="/magic-pickleball"
-              onClick={() => setOpen(false)}
-              className="bg-green-700 text-white hover:bg-green-800 px-4 py-3 rounded-lg font-bold transition-colors shadow-lg"
-            >
-               The Magic Pickleball
-            </Link>
-
-            {/* About & Contact */}
-            <div className="border-t border-yellow-400/20 mt-4 pt-4 space-y-2">
-              <Link
-                href="/pages/about"
-                onClick={() => setOpen(false)}
-                className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors block"
-              >
-                 About
-              </Link>
-              <Link
-                href="/pages/contact"
-                onClick={() => setOpen(false)}
-                className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors block"
-              >
-                Contact
-              </Link>
+              {/* Expandable Collections List */}
+              {collectionsOpen && (
+                <div className="ml-4 space-y-1 border-l-2 border-yellow-400/20 pl-2">
+                  {filteredCollections.map((collection) => (
+                    <Link
+                      key={collection.id}
+                      href={`/collections/${collection.handle}`}
+                      onClick={() => setOpen(false)}
+                      className="block text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-2.5 rounded-lg transition-colors"
+                    >
+                      <div className="font-medium text-sm">{collection.title}</div>
+                      <div className="text-xs text-yellow-400/60 mt-0.5 line-clamp-1">
+                        {collection.description || 
+                         collectionDescriptions[collection.handle] || 
+                         "Explore our collection"}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
-          </nav>
-        </DrawerContent>
-      </Drawer>
+          )}
+
+          {/* Magic Pickleball - Special */}
+          <Link
+            href="/magic-pickleball"
+            onClick={() => setOpen(false)}
+            className="bg-green-700 text-white hover:bg-green-800 px-4 py-3 rounded-lg font-bold transition-colors shadow-lg"
+          >
+            The Magic Pickleball
+          </Link>
+
+          {/* About & Contact */}
+          <div className="border-t border-yellow-400/20 mt-4 pt-4 space-y-2">
+            <Link
+              href="/pages/about"
+              onClick={() => setOpen(false)}
+              className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors block"
+            >
+              About
+            </Link>
+            <Link
+              href="/pages/contact"
+              onClick={() => setOpen(false)}
+              className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors block"
+            >
+              Contact
+            </Link>
+          </div>
+        </nav>
+      </div>
     </>
   )
 }
