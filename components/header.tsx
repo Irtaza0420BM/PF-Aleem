@@ -1,7 +1,5 @@
 
 
-
-
 import Link from "next/link"
 import Image from "next/image"
 import { HeaderCart } from "./header-cart"
@@ -26,28 +24,33 @@ export async function Header() {
   return (
     <>
       <HolidayBanner />
-      <header className="border-b-4 bg-black border-yellow-400 sticky top-0 z-50 shadow-xl">
-        <div className="container mx-auto px-4 py-3">
+      <header className="border-b-4 bg-black border-yellow-400 sticky top-0 z-50 shadow-xl w-screen max-w-full">
+        <div className="w-full px-4 py-3 mx-auto" style={{ maxWidth: '100vw' }}>
           
           {/* 📱 MOBILE LAYOUT */}
-          <div className="flex md:hidden items-center justify-between">
-            <MobileMenu collections={collections} />
+          <div className="flex md:hidden items-center justify-between w-full">
+            <div className="flex-shrink-0">
+              <MobileMenu collections={collections} />
+            </div>
             
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center flex-shrink-0">
               <Image
                 src="/images/moment-pickleball-logo.png"
                 alt="Moment Pickleball"
                 width={120}
                 height={40}
                 className="h-8 w-auto"
+                priority
               />
             </Link>
             
-            <HeaderCart />
+            <div className="flex-shrink-0">
+              <HeaderCart />
+            </div>
           </div>
 
           {/* 🖥️ DESKTOP LAYOUT - 3 Column Grid */}
-          <div className="hidden md:grid md:grid-cols-3 md:items-center md:gap-4">
+          <div className="hidden md:grid md:grid-cols-3 md:items-center md:gap-4 w-full">
             {/* Left: Logo */}
             <Link href="/" className="flex items-center justify-start">
               <Image
@@ -56,6 +59,7 @@ export async function Header() {
                 width={144}
                 height={48}
                 className="h-10 w-auto"
+                priority
               />
             </Link>
 
