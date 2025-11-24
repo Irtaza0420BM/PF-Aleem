@@ -1,15 +1,10 @@
+
+
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { HeaderCart } from "./header-cart"
+import { ChevronDown, ChevronUp } from "lucide-react"
 
 interface HeaderNavigationProps {
   collections: Array<{
@@ -29,6 +24,8 @@ const collectionDescriptions: Record<string, string> = {
 }
 
 export function HeaderNavigation({ collections }: HeaderNavigationProps) {
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+
   const filteredCollections = collections.filter(
     (collection) =>
       !collection.title.toLowerCase().includes("home page") &&
@@ -40,61 +37,85 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
   )
 
   return (
-    <nav className="hidden md:flex items-center gap-8">
-      <Link href="/" className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors">
+    <nav className="flex items-center gap-4 lg:gap-6">
+      {/* Home Link */}
+      <Link 
+        href="/" 
+        className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors whitespace-nowrap"
+      >
         Home
       </Link>
 
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors">
-              Shop By Collection
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4">
-                {filteredCollections.length > 0 ? (
-                  filteredCollections.map((collection) => (
-                    <li key={collection.id}>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href={`/collections/${collection.handle}`}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-medium leading-none">{collection.title}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {collection.description ||
-                              collectionDescriptions[collection.handle] ||
-                              "Explore our curated collection"}
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  ))
-                ) : (
-                  <li className="p-3 text-sm text-muted-foreground">No collections available</li>
-                )}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+      {/* Shop By Collection - Click Dropdown */}
+      <div className="relative">
+        <button
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors whitespace-nowrap flex items-center gap-1"
+        >
+          Shop By Collection
+          {dropdownOpen ? (
+            <ChevronUp className="h-4 w-4" />
+          ) : (
+            <ChevronDown className="h-4 w-4" />
+          )}
+        </button>
+        
+        {/* Dropdown Menu */}
+        {dropdownOpen && (
+          <div className="absolute top-full left-0 mt-2 w-[400px] bg-white border-2 border-gray-200 rounded-lg shadow-2xl z-50 max-h-[500px] overflow-y-auto">
+            <div className="p-2">
+              {filteredCollections.length > 0 ? (
+                filteredCollections.map((collection) => (
+                  <Link
+                    key={collection.id}
+                    href={`/collections/${collection.handle}`}
+                    onClick={() => setDropdownOpen(false)}
+                    className="block p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="text-sm font-semibold text-black">
+                      {collection.title}
+                    </div>
+                    <p className="text-xs text-gray-600 mt-1 line-clamp-2">
+                      {collection.description ||
+                        collectionDescriptions[collection.handle] ||
+                        "Explore our curated collection"}
+                    </p>
+                  </Link>
+                ))
+              ) : (
+                <div className="p-3 text-sm text-gray-500">
+                  No collections available
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
 
+      {/* Magic Pickleball */}
       <Link
         href="/magic-pickleball"
-        className="px-3 py-1.5 text-sm font-bold bg-green-700 text-white rounded hover:bg-green-800 transition-colors shadow-lg"
+        className="px-3 py-1.5 text-sm font-bold bg-green-700 text-white rounded hover:bg-green-800 transition-colors shadow-lg whitespace-nowrap"
       >
         The Magic Pickleball
       </Link>
 
-      <Link href="/pages/about" className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors">
+      {/* About */}
+      <Link 
+        href="/pages/about" 
+        className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors whitespace-nowrap"
+      >
         About
       </Link>
-      <Link href="/pages/contact" className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors">
+      
+      {/* Contact */}
+      <Link 
+        href="/pages/contact" 
+        className="px-3 py-1.5 text-sm bg-white text-black font-semibold rounded hover:bg-gray-200 transition-colors whitespace-nowrap"
+      >
         Contact
       </Link>
-      <HeaderCart />
     </nav>
   )
 }
-
+export default HeaderNavigation

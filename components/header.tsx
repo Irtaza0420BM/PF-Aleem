@@ -1,7 +1,12 @@
+
+
+
+
 import Link from "next/link"
 import Image from "next/image"
 import { HeaderCart } from "./header-cart"
 import { HeaderNavigation } from "./header-navigation"
+import { MobileMenu } from "./mobile-menu"
 import { getCollections } from "@/lib/shopify"
 import { HolidayBanner } from "./holiday-banner"
 
@@ -16,16 +21,35 @@ export async function Header() {
     ])
   } catch (error) {
     console.error("[v0] Failed to load collections in header:", error)
-    // Continue rendering with empty collections - site will still work
   }
 
   return (
     <>
       <HolidayBanner />
       <header className="border-b-4 bg-black border-yellow-400 sticky top-0 z-50 shadow-xl">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-center gap-8 relative">
-          <div className="flex items-center gap-3 absolute left-4">
-            <Link href="/" className="flex items-center gap-3">
+        <div className="container mx-auto px-4 py-3">
+          
+          {/* 📱 MOBILE LAYOUT */}
+          <div className="flex md:hidden items-center justify-between">
+            <MobileMenu collections={collections} />
+            
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/moment-pickleball-logo.png"
+                alt="Moment Pickleball"
+                width={120}
+                height={40}
+                className="h-8 w-auto"
+              />
+            </Link>
+            
+            <HeaderCart />
+          </div>
+
+          {/* 🖥️ DESKTOP LAYOUT - 3 Column Grid */}
+          <div className="hidden md:grid md:grid-cols-3 md:items-center md:gap-4">
+            {/* Left: Logo */}
+            <Link href="/" className="flex items-center justify-start">
               <Image
                 src="/images/moment-pickleball-logo.png"
                 alt="Moment Pickleball"
@@ -34,13 +58,18 @@ export async function Header() {
                 className="h-10 w-auto"
               />
             </Link>
+
+            {/* Center: Navigation */}
+            <div className="flex justify-center">
+              <HeaderNavigation collections={collections} />
+            </div>
+
+            {/* Right: Cart */}
+            <div className="flex justify-end">
+              <HeaderCart />
+            </div>
           </div>
 
-          <HeaderNavigation collections={collections} />
-
-          <div className="md:hidden flex items-center gap-4 absolute right-4">
-            <HeaderCart />
-          </div>
         </div>
       </header>
     </>
