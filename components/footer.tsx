@@ -89,7 +89,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/pages/affiliate" className="hover:text-yellow-400 transition-colors inline-block">
-                  Affiliate Program
+                  Blog
                 </Link>
               </li>
               <li>

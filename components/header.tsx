@@ -1,5 +1,3 @@
-
-
 import Link from "next/link"
 import Image from "next/image"
 import { HeaderCart } from "./header-cart"
@@ -24,52 +22,57 @@ export async function Header() {
   return (
     <>
       <HolidayBanner />
-      <header className="border-b-4 bg-black border-yellow-400 sticky top-0 z-50 shadow-xl w-screen max-w-full">
-        <div className="w-full px-4 py-3 mx-auto" style={{ maxWidth: '100vw' }}>
+      <header className="border-b-4 bg-black border-yellow-400 sticky top-0 z-50 shadow-xl">
+        <div className="w-full px-3 sm:px-4 py-3 mx-auto">
           
-          {/* 📱 MOBILE LAYOUT */}
-          <div className="flex md:hidden items-center justify-between w-full">
+          {/* 📱 MOBILE LAYOUT (up to md) - Hamburger | Logo | Cart */}
+          <div className="flex md:hidden items-center justify-between gap-2">
+            {/* Left: Hamburger Menu */}
             <div className="flex-shrink-0">
               <MobileMenu collections={collections} />
             </div>
             
-            <Link href="/" className="flex items-center flex-shrink-0">
+            {/* Center: Logo (responsive width) */}
+            <Link href="/" className="flex items-center justify-center flex-1 min-w-0">
               <Image
-                src="/images/moment-pickleball-logo.png"
+                src="/images/pickleball-logo.webp"
                 alt="Moment Pickleball"
                 width={120}
-                height={40}
-                className="h-8 w-auto"
+                height={24}
+                className="h-4 w-auto"
                 priority
               />
             </Link>
             
+            {/* Right: Cart Icon */}
             <div className="flex-shrink-0">
               <HeaderCart />
             </div>
           </div>
 
-          {/* 🖥️ DESKTOP LAYOUT - 3 Column Grid */}
-          <div className="hidden md:grid md:grid-cols-3 md:items-center md:gap-4 w-full">
-            {/* Left: Logo */}
-            <Link href="/" className="flex items-center justify-start">
-              <Image
-                src="/images/moment-pickleball-logo.png"
-                alt="Moment Pickleball"
-                width={144}
-                height={48}
-                className="h-10 w-auto"
-                priority
-              />
-            </Link>
+          {/* 🖥️ DESKTOP LAYOUT (md and up) - 40% Logo | 50% Navigation | 10% Cart */}
+          <div className="hidden md:flex md:items-center md:gap-4 lg:gap-6 w-full">
+            {/* Left: Logo - 40% */}
+            <div className="flex items-center justify-start" style={{ width: '40%' }}>
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/images/pickleball-logo.webp"
+                  alt="Moment Pickleball"
+                  width={180}
+                  height={32}
+                  className="h-5 w-auto"
+                  priority
+                />
+              </Link>
+            </div>
 
-            {/* Center: Navigation */}
-            <div className="flex justify-center">
+            {/* Center: Navigation - 50% */}
+            <div className="flex items-center justify-start" style={{ width: '50%' }}>
               <HeaderNavigation collections={collections} />
             </div>
 
-            {/* Right: Cart */}
-            <div className="flex justify-end">
+            {/* Right: Cart - 10% */}
+            <div className="flex justify-end" style={{ width: '10%' }}>
               <HeaderCart />
             </div>
           </div>

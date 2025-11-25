@@ -1,12 +1,7 @@
-
-
-
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"
-import { Button } from "./ui/button"
 
 interface MobileMenuProps {
   collections: Array<{
@@ -55,15 +50,13 @@ export function MobileMenu({ collections }: MobileMenuProps) {
   return (
     <>
       {/* Hamburger Button */}
-      <Button
-        variant="ghost"
-        size="icon"
+      <button
         onClick={() => setOpen(true)}
-        className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 -ml-2"
+        className="text-yellow-400 hover:text-white hover:bg-yellow-400/10 -ml-2 p-2 bg-transparent border-none cursor-pointer rounded"
         aria-label="Open menu"
       >
         <Menu className="h-6 w-6" />
-      </Button>
+      </button>
 
       {/* Backdrop Overlay */}
       {open && (
@@ -83,27 +76,25 @@ export function MobileMenu({ collections }: MobileMenuProps) {
         {/* Header with Close Button */}
         <div className="flex items-center justify-between p-4 border-b border-yellow-400/20">
           <h2 className="text-yellow-400 text-xl font-bold">Menu</h2>
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
             onClick={() => setOpen(false)}
-            className="text-yellow-400 hover:bg-yellow-400/10 rounded-full"
+            className="text-yellow-400 hover:bg-yellow-400/10 hover:text-white rounded-full p-2 bg-transparent border-none cursor-pointer"
             aria-label="Close menu"
           >
             <X className="h-7 w-7" />
-          </Button>
+          </button>
         </div>
 
         {/* Navigation Links */}
         <nav className="flex flex-col p-4 space-y-2 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 70px)' }}>
           {/* Home Link */}
-          <Link
+          <a
             href="/"
             onClick={() => setOpen(false)}
-            className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors"
+            className="text-yellow-400 hover:text-white hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-all no-underline"
           >
-             Home
-          </Link>
+            Home
+          </a>
 
           {/* Shop By Collection - Collapsible */}
           {filteredCollections.length > 0 && (
@@ -111,9 +102,9 @@ export function MobileMenu({ collections }: MobileMenuProps) {
               {/* Toggle Button */}
               <button
                 onClick={() => setCollectionsOpen(!collectionsOpen)}
-                className="w-full flex items-center justify-between text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors"
+                className="w-full flex items-center justify-between text-yellow-400 hover:text-white hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-all bg-transparent border-none cursor-pointer"
               >
-                <span> Shop By Collection</span>
+                <span>Shop By Collection</span>
                 {collectionsOpen ? (
                   <ChevronUp className="h-5 w-5" />
                 ) : (
@@ -125,19 +116,19 @@ export function MobileMenu({ collections }: MobileMenuProps) {
               {collectionsOpen && (
                 <div className="ml-4 space-y-1 border-l-2 border-yellow-400/20 pl-2">
                   {filteredCollections.map((collection) => (
-                    <Link
+                    <a
                       key={collection.id}
                       href={`/collections/${collection.handle}`}
                       onClick={() => setOpen(false)}
-                      className="block text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-2.5 rounded-lg transition-colors"
+                      className="block text-yellow-400 hover:text-white hover:bg-yellow-400/10 px-4 py-2.5 rounded-lg transition-all no-underline"
                     >
                       <div className="font-medium text-sm">{collection.title}</div>
-                      <div className="text-xs text-yellow-400/60 mt-0.5 line-clamp-1">
+                      <div className="text-xs text-yellow-400/60 hover:text-white/60 mt-0.5 line-clamp-1 transition-colors">
                         {collection.description || 
                          collectionDescriptions[collection.handle] || 
                          "Explore our collection"}
                       </div>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               )}
@@ -145,30 +136,30 @@ export function MobileMenu({ collections }: MobileMenuProps) {
           )}
 
           {/* Magic Pickleball - Special */}
-          <Link
+          <a
             href="/magic-pickleball"
             onClick={() => setOpen(false)}
-            className="bg-green-700 text-white hover:bg-green-800 px-4 py-3 rounded-lg font-bold transition-colors shadow-lg"
+            className="bg-green-700 text-white hover:bg-green-800 px-4 py-3 rounded-lg font-bold transition-colors shadow-lg no-underline block"
           >
             The Magic Pickleball
-          </Link>
+          </a>
 
           {/* About & Contact */}
           <div className="border-t border-yellow-400/20 mt-4 pt-4 space-y-2">
-            <Link
+            <a
               href="/pages/about"
               onClick={() => setOpen(false)}
-              className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors block"
+              className="text-yellow-400 hover:text-white hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-all block no-underline"
             >
               About
-            </Link>
-            <Link
+            </a>
+            <a
               href="/pages/contact"
               onClick={() => setOpen(false)}
-              className="text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-colors block"
+              className="text-yellow-400 hover:text-white hover:bg-yellow-400/10 px-4 py-3 rounded-lg font-semibold transition-all block no-underline"
             >
               Contact
-            </Link>
+            </a>
           </div>
         </nav>
       </div>
