@@ -166,12 +166,13 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-10 sm:py-14 md:py-16 lg:py-20 bg-yellow-400">
+      <section className="py-10 sm:py-14 md:py-16 lg:py-20 bg-gray-900">
         <div className="container mx-auto px-3 sm:px-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6 text-center text-black">Make Every Moment Count</h2>
-          <p className="text-sm sm:text-base md:text-lg text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed text-gray-900 font-medium px-2">
-            We believe pickleball is more than just a game—it's about the people you meet, the confidence you build, and the joy you find in every rally. Whether you're training hard, connecting with community, or just having fun, we're here to help you make the most of every moment on and off the court.
-          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6 text-center text-white">Make Every Moment Count</h2>
+          <p className="text-sm sm:text-base md:text-lg text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed text-white font-medium px-2">
+  We believe pickleball is more than just a game—it's about the people you meet, the confidence you build, and the joy you find in every rally. Whether you're training hard, connecting with community, or just having fun, we're here to help you make the most of every moment on and off the court.
+</p>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto">
             <div className="bg-black text-white rounded-lg p-4 sm:p-5 md:p-6 shadow-xl hover:shadow-2xl transition-shadow min-h-[280px] sm:min-h-[320px] md:min-h-[350px]">
               <div className="flex flex-col items-center gap-3 sm:gap-4">
@@ -246,7 +247,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-red-600 via-green-600 to-red-600 py-6 sm:py-8 border-y-2 sm:border-y-3 md:border-y-4 border-yellow-400">
+      <section className="bg-gray-900 py-6 sm:py-8 border-y-2 sm:border-y-3 md:border-y-4 border-yellow-400">
         <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center mb-4 sm:mb-5 md:mb-6">
             <div className="inline-block p-1.5 sm:p-2 bg-white rounded-full shadow-xl mb-2 sm:mb-3">

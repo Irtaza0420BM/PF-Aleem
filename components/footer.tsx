@@ -115,11 +115,6 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4 text-yellow-400">Support</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/pages/shipping" className="hover:text-yellow-400 transition-colors inline-block">
-                  Shipping Policy
-                </Link>
-              </li>
-              <li>
                 <Link href="/pages/refund" className="hover:text-yellow-400 transition-colors inline-block">
                   Refund Policy
                 </Link>
@@ -129,11 +124,7 @@ export function Footer() {
                   Privacy Policy
                 </Link>
               </li>
-              <li>
-                <Link href="/pages/terms" className="hover:text-yellow-400 transition-colors inline-block">
-                  Terms of Service
-                </Link>
-              </li>
+              
             </ul>
           </div>
         </div>
