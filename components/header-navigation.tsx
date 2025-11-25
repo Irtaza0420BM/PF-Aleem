@@ -25,7 +25,9 @@ const collectionDescriptions: Record<string, string> = {
 
 export function HeaderNavigation({ collections }: HeaderNavigationProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [contactDropdownOpen, setContactDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const contactDropdownRef = useRef<HTMLDivElement>(null)
 
   const filteredCollections = collections.filter(
     (collection) =>
@@ -43,16 +45,19 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false)
       }
+      if (contactDropdownRef.current && !contactDropdownRef.current.contains(event.target as Node)) {
+        setContactDropdownOpen(false)
+      }
     }
 
-    if (dropdownOpen) {
+    if (dropdownOpen || contactDropdownOpen) {
       document.addEventListener("mousedown", handleClickOutside)
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [dropdownOpen])
+  }, [dropdownOpen, contactDropdownOpen])
 
   return (
     <nav className="flex items-center justify-start gap-2 lg:gap-3 xl:gap-4 flex-wrap">
@@ -103,15 +108,40 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-white w-0 group-hover:w-[calc(100%-1rem)] transition-all duration-300"></span>
   </Link>
 
-  {/* Contact */}
-  <Link 
-    href="/pages/contact" 
-    className="relative z-10 px-2 lg:px-3 py-1.5 text-xs lg:text-sm bg-black text-[#fdfe06] font-semibold rounded transition-all group inline-block whitespace-nowrap"
-    style={{ cursor: 'pointer' }}
+  {/* Contact with Dropdown */}
+  <div 
+    className="relative z-50" 
+    ref={contactDropdownRef}
+    onMouseEnter={() => setContactDropdownOpen(true)}
+    onMouseLeave={() => setContactDropdownOpen(false)}
   >
-    <span className="relative z-10 group-hover:text-white transition-colors inline-block">Contact</span>
-    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-white w-0 group-hover:w-[calc(100%-1rem)] transition-all duration-300"></span>
-  </Link>
+    <Link 
+      href="/pages/contact" 
+      className="relative z-10 px-2 lg:px-3 py-1.5 text-xs lg:text-sm bg-black text-[#fdfe06] font-semibold rounded transition-all group whitespace-nowrap flex items-center gap-1"
+      style={{ cursor: 'pointer' }}
+    >
+      <span className="relative z-10 group-hover:text-white transition-colors inline-block">Contact</span>
+      <ChevronDown className="h-3 w-3 lg:h-4 lg:w-4 relative z-10 group-hover:text-white transition-colors" />
+      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-white w-0 group-hover:w-[calc(100%-1rem)] transition-all duration-300"></span>
+    </Link>
+    
+    {contactDropdownOpen && (
+      <div className="absolute top-full left-0 mt-1 bg-black border border-blackrounded shadow-xl min-w-[200px] z-50">
+        <Link
+          href="/pages/sponsorship-ambassadors"
+          className="block px-4 py-3 text-[#fdfe06] hover:text-white hover:bg-gray-900 transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap"
+        >
+          Sponsorship / Ambassadors
+        </Link>
+        <Link
+          href="/pages/reseller-wholesale"
+          className="block px-4 py-3 text-[#fdfe06] hover:text-white hover:bg-gray-900 transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap border-t border-yellow-400"
+        >
+          Reseller / Wholesale
+        </Link>
+      </div>
+    )}
+  </div>
 </nav>
 
   )
