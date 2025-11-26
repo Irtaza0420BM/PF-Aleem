@@ -93,7 +93,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pages/ambassador" className="hover:text-yellow-400 transition-colors inline-block">
+                <Link href="/pages/ambassadors" className="hover:text-yellow-400 transition-colors inline-block">
                   Ambassador Program
                 </Link>
               </li>
