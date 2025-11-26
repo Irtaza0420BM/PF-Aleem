@@ -126,7 +126,7 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
     </Link>
     
     {contactDropdownOpen && (
-      <div className="absolute top-full left-0 mt-1 bg-black border border-blackrounded shadow-xl min-w-[200px] z-50">
+      <div className="absolute top-full left-0 mt-0 bg-black border-2 border-black rounded shadow-xl min-w-[200px] z-50">
         <Link
           href="/pages/sponsorship-ambassadors"
           className="block px-4 py-3 text-[#fdfe06] hover:text-white hover:bg-gray-900 transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap"
