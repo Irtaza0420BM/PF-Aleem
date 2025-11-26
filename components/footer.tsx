@@ -7,13 +7,13 @@ export function Footer() {
     <footer className="bg-black text-white">
       <div className="bg-gradient-to-r from-red-900/20 to-green-900/20 border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 text-center">
-          <div className="flex items-center justify-center gap-2 mb-1">
-            <Snowflake className="w-4 h-4 text-blue-400 animate-pulse" />
-            <p className="text-sm text-gray-200 font-medium">Happy Holidays from Moment Pickleball</p>
-            <Snowflake className="w-4 h-4 text-blue-400 animate-pulse" />
-          </div>
-          <p className="text-xs text-gray-400">Order by December 20th for holiday delivery</p>
-        </div>
+  <div className="flex items-center justify-center gap-2 mb-1">
+    <Snowflake className="w-6 h-6 text-blue-400 animate-pulse" />
+    <p className="text-xl text-gray-200 font-semibold">Happy Holidays from Moment Pickleball</p>
+    <Snowflake className="w-6 h-6 text-blue-400 animate-pulse" />
+  </div>
+  <p className="text-lg text-gray-400">Order by December 20th for holiday delivery</p>
+</div>
       </div>
 
       <div className="container mx-auto px-4 py-12">

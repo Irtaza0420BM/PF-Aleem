@@ -1,3 +1,5 @@
+// 
+
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -68,10 +70,14 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
         <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-white w-0 group-hover:w-[calc(100%-1rem)] transition-all duration-300"></span>
       </Link>
 
-      {/* Shop By Collection */}
-      <div className="relative z-50" ref={dropdownRef}>
+      {/* Shop By Collection - HOVER TO OPEN */}
+      <div 
+        className="relative z-50" 
+        ref={dropdownRef}
+        onMouseEnter={() => setDropdownOpen(true)}
+        onMouseLeave={() => setDropdownOpen(false)}
+      >
         <button
-          onClick={() => setDropdownOpen(!dropdownOpen)}
           className="px-2 lg:px-3 py-1.5 text-xs lg:text-sm bg-black text-[#fdfe06] font-semibold rounded transition-all group whitespace-nowrap flex items-center gap-1"
         >
           <span className="relative z-10 group-hover:text-white transition-colors">Shop By Collection</span>
@@ -79,7 +85,7 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
         </button>
 
         {dropdownOpen && filteredCollections.length > 0 && (
-          <div className="absolute left-0 mt-2 w-72 bg-black border-2 border-[#fdfe06] rounded-lg shadow-2xl overflow-hidden">
+          <div className="absolute left-0 mt-0 w-72 bg-black rounded-lg shadow-2xl overflow-hidden">
             <div className="py-2">
               {filteredCollections.map((collection) => (
                 <Link
@@ -117,7 +123,7 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
         About
       </Link>
 
-      {/* Contact with dropdown */}
+      {/* Contact with dropdown - HOVER TO OPEN, NO BORDER */}
       <div 
         className="relative z-50" 
         ref={contactDropdownRef}
@@ -130,7 +136,7 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
         </div>
 
         {contactDropdownOpen && (
-          <div className="absolute top-full left-0 mt-0 bg-black border-2 border-[#fdfe06] rounded shadow-xl min-w-[200px] z-50">
+          <div className="absolute top-full left-0 mt-0 bg-black rounded shadow-xl min-w-[200px] z-50">
             <Link
               href="/pages/sponsorship-ambassadors"
               className="block px-4 py-3 text-[#fdfe06] hover:text-white hover:bg-gray-900 transition-colors text-xs lg:text-sm"
@@ -139,7 +145,7 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
             </Link>
             <Link
               href="/pages/reseller-wholesale"
-              className="block px-4 py-3 text-[#fdfe06] hover:text-white hover:bg-gray-900 transition-colors text-xs lg:text-sm border-t border-yellow-400"
+              className="block px-4 py-3 text-[#fdfe06] hover:text-white hover:bg-gray-900 transition-colors text-xs lg:text-sm"
             >
               Reseller / Wholesale
             </Link>

@@ -50,8 +50,10 @@ export async function Header() {
             </div>
           </div>
 
-          {/* 🖥️ DESKTOP LAYOUT (md and up) - 40% Logo | 50% Navigation | 10% Cart */}
-          <div className="hidden md:flex md:items-center md:gap-4 lg:gap-6 w-full">
+          
+          {/* <div className="hidden md:flex md:items-center md:gap-4 lg:gap-6 w-full"> */}
+          <div className="hidden md:flex md:items-center md:gap-1 lg:gap-2 w-full">
+
             {/* Left: Logo - 40% */}
             <div className="flex items-center justify-start" style={{ width: '40%' }}>
               <Link href="/" className="flex items-center">

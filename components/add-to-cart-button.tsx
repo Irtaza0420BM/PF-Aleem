@@ -65,7 +65,7 @@ export function AddToCartButton({ product, selectedVariant }: AddToCartButtonPro
       onClick={handleAddToCart} 
       disabled={isDisabled} 
       className={cn(
-        "w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold transition-all duration-200",
+        "w-full bg-[#fdfe06] hover:bg-yellow-500 text-black font-bold transition-all duration-200",
         justAdded && "bg-green-500 hover:bg-green-600",
         (isLoading || isAdding) && "opacity-75 cursor-wait"
       )}
