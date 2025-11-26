@@ -124,7 +124,16 @@ export function Footer() {
                   Privacy Policy
                 </Link>
               </li>
-              
+              <li>
+                <Link href="/pages/moment" className="hover:text-yellow-400 transition-colors inline-block">
+                  Moment Mindset
+                </Link>
+              </li>
+              <li>
+                <Link href="/pages/performance" className="hover:text-yellow-400 transition-colors inline-block">
+                  Performance Program
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
