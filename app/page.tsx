@@ -1,6 +1,3 @@
-
-
-
 import { getCollectionProducts, getProduct } from "@/lib/shopify"
 import { ProductCard } from "@/components/product-card"
 import Link from "next/link"
@@ -30,34 +27,54 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
             {/* Left side - Hero Carousel */}
             <div className="space-y-3 sm:space-y-4 flex justify-center md:justify-start">
-              <div className="relative h-[350px] sm:h-[400px] md:h-[480px] lg:h-[550px] xl:h-[600px] w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[420px] xl:max-w-full rounded-lg overflow-hidden border-2 sm:border-3 md:border-4 border-yellow-400 shadow-2xl aspect-[3/4]">
-                <div className="hero-carousel">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_03-FKHiiHQWkSOZOX2u0Qs317gJyoHHvj.jpg"
-                    alt="Player with Moment Pickleball backpack on court"
-                    fill
-                    className="object-cover hero-image"
-                    priority
-                  />
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pickleball_Action_2048_08-pJ0yLUlWbW1oKH5XQcXldo00aBpQZb.jpg"
-                    alt="Player with Moment gear and paddle"
-                    fill
-                    className="object-cover hero-image"
-                  />
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pickleball_Action_2048_29-EBWz3lBFS7SXozEggQMylpC88PPlQe.jpg"
-                    alt="Action shot of player during gameplay"
-                    fill
-                    className="object-cover hero-image"
-                  />
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_10-JDZX6i64twaXZPBtADSbFRRQFvaIsv.jpg"
-                    alt="Player wearing Moment backpack"
-                    fill
-                    className="object-cover hero-image"
-                  />
-                </div>
+              <div className="relative h-[350px] sm:h-[400px] md:h-[480px] lg:h-[550px] xl:h-[600px] w-full max-w-[350px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px] rounded-lg overflow-hidden border-2 sm:border-3 md:border-4 border-yellow-400 shadow-2xl aspect-[4/5]">
+             
+             <div className="hero-carousel">
+  <Image
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unnamed-1-2Gkd8IELF0zVYlGc4UkmWfFt2wJr49.jpg"
+    alt="Inside view of organized backpack"
+    fill
+    className="object-cover hero-image"
+    priority
+    style={{ objectPosition: 'center' }}
+  />
+  <Image
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unnamed-yZVoHdHw9Zr0CpxUhTbXyenQbZ2zNN.jpg"
+    alt="Moment backpack with full gear setup"
+    fill
+    className="object-cover hero-image"
+    style={{ objectPosition: 'center' }}
+  />
+  <Image
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_11-pptyXq1O1miAb1388VaFIMJYlH54o3.jpg"
+    alt="Player organizing backpack on court"
+    fill
+    className="object-cover hero-image"
+    style={{ objectPosition: 'center' }}
+  />
+  <Image
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_10-JDZX6i64twaXZPBtADSbFRRQFvaIsv.jpg"
+    alt="Backpack with Moment branding"
+    fill
+    className="object-cover hero-image"
+    style={{ objectPosition: 'center' }}
+  />
+  <Image
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pickleball_Action_2048_08-pJ0yLUlWbW1oKH5XQcXldo00aBpQZb.jpg"
+    alt="Player with Moment gear"
+    fill
+    className="object-cover hero-image"
+    style={{ objectPosition: 'center' }}
+  />
+  <Image
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pickleball_Action_2048_29-EBWz3lBFS7SXozEggQMylpC88PPlQe.jpg"
+    alt="Action gameplay shot"
+    fill
+    className="object-cover hero-image"
+    style={{ objectPosition: 'center' }}
+  />
+</div>
+
               </div>
             </div>
 
@@ -83,7 +100,7 @@ export default async function Home() {
             </div>
           </div>
           
-          <div className="mt-6 sm:mt-8 md:mt-12 grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3">
+          <div className="mt-6 sm:mt-8 md:mt-12 grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
             <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unnamed-1-2Gkd8IELF0zVYlGc4UkmWfFt2wJr49.jpg"
@@ -110,14 +127,6 @@ export default async function Home() {
             </div>
             <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_09-OgzeJVFdCHqkyNjyvl3i0cOZu1LVZO.jpg"
-                alt="Player wearing Moment backpack"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
-              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_10-JDZX6i64twaXZPBtADSbFRRQFvaIsv.jpg"
                 alt="Backpack with Moment branding"
                 fill
@@ -136,14 +145,6 @@ export default async function Home() {
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pickleball_Action_2048_29-EBWz3lBFS7SXozEggQMylpC88PPlQe.jpg"
                 alt="Action gameplay shot"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_03-FKHiiHQWkSOZOX2u0Qs317gJyoHHvj.jpg"
-                alt="Player on orange court"
                 fill
                 className="object-cover"
               />
@@ -240,7 +241,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="text-center mt-8 sm:mt-10 md:mt-12">
-            <Button asChild size="lg" className="bg-black hover:bg-gray-900 text-yellow-400 font-bold px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg shadow-2xl w-full sm:w-auto">
+            <Button asChild size="lg" className="bg-black hover:bg-gray-900 text-[#fdfe06] font-bold px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg shadow-2xl w-full sm:w-auto">
               <Link href="/pages/about-scott-weiss">Meet Our Founder</Link>
             </Button>
           </div>
@@ -280,20 +281,21 @@ export default async function Home() {
             <Button asChild size="default" className="bg-white hover:bg-gray-100 text-red-600 font-bold shadow-xl text-sm sm:text-base w-full sm:w-auto">
               <Link href="/collections/all">Shop All Gifts</Link>
             </Button>
-            <Button
-              asChild
-              size="default"
-              className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold shadow-xl text-sm sm:text-base w-full sm:w-auto"
-            >
-              <Link href="/magic-pickleball">Discover The Magic Pickleball</Link>
-            </Button>
+          <Button
+  asChild
+  size="default"
+  style={{ backgroundColor: '#fdfe06' }}
+  className="hover:bg-yellow-500 text-black font-bold shadow-xl text-sm sm:text-base w-full sm:w-auto"
+>
+  <Link href="/magic-pickleball">Discover The Magic Pickleball</Link>
+</Button>
           </div>
         </div>
       </section>
 
       <section className="bg-black text-white py-10 sm:py-14 md:py-16 lg:py-20">
         <div className="container mx-auto px-3 sm:px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6 text-yellow-400 text-balance px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6 text-[#fdfe06] text-balance px-2">
             The Ultimate Pickleball Fun And Fortune Awaits!
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-7 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
@@ -315,12 +317,13 @@ export default async function Home() {
           </div>
           
           <Button
-            asChild
-            size="lg"
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg w-full sm:w-auto"
-          >
-            <Link href="/magic-pickleball">Discover The Magic Pickleball</Link>
-          </Button>
+           asChild
+           size="lg"
+           style={{ backgroundColor: '#fdfe06' }}
+           className="hover:bg-yellow-500 text-black font-bold px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg w-full sm:w-auto"
+           >
+           <Link href="/magic-pickleball">Discover The Magic Pickleball</Link>
+           </Button>
         </div>
       </section>
     </div>

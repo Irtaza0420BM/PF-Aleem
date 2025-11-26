@@ -47,12 +47,13 @@ export function NewsletterForm() {
           disabled={status === "loading"}
         />
         <Button
-          type="submit"
-          className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold"
-          disabled={status === "loading"}
-        >
-          {status === "loading" ? "Subscribing..." : "Subscribe"}
-        </Button>
+  type="submit"
+  style={{ backgroundColor: '#fdfe06' }}
+  className="hover:bg-yellow-500 text-black font-bold"
+  disabled={status === "loading"}
+>
+  {status === "loading" ? "Subscribing..." : "Subscribe"}
+</Button>
       </form>
       {message && (
         <p className={`text-sm mt-2 ${status === "success" ? "text-green-400" : "text-red-400"}`}>{message}</p>
