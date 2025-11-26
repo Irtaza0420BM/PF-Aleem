@@ -17,10 +17,10 @@ export default function SponsorshipAmbassadorsPage() {
         }}
       />
       
-      <div className="container mx-auto px-0 relative z-10 max-w-[1920px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 h-screen">
+      <div className="container mx-auto px-0 lg:px-4 xl:px-8 relative z-10 max-w-[1920px] py-8 lg:py-12 xl:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 lg:gap-4 xl:gap-6 items-center justify-center">
           {/* SPONSORSHIPS Section - Clickable */}
-          <Link href="/pages/sponsorships" className="relative h-screen block group cursor-pointer">
+          <Link href="/pages/sponsorships" className="relative h-[70vh] md:h-[75vh] lg:h-[70vh] xl:h-[75vh] block group cursor-pointer">
             <div className="bg-gradient-to-b from-blue-100 to-white relative flex flex-col h-full transition-transform group-hover:scale-[1.02]">
               {/* Grid pattern overlay for this section */}
               <div 
@@ -35,14 +35,14 @@ export default function SponsorshipAmbassadorsPage() {
               />
               
               {/* Image Container - fills most of the space */}
-              <div className="relative flex-1 w-full flex items-center justify-center p-6 md:p-8 lg:p-12 xl:p-16">
+              <div className="relative flex-1 w-full flex items-center justify-center p-6 md:p-8 lg:p-10 xl:p-12">
                 <div className="relative w-full h-full">
                   <Image
                     src="https://momentpickleball.com/cdn/shop/files/Drew_814x_crop_center.jpg?v=1717504160"
                     alt="Sponsorships"
                     fill
                     className="object-contain object-center"
-                    sizes="50vw"
+                    sizes="(max-width: 1024px) 50vw, 45vw"
                     priority
                   />
                 </div>
@@ -59,7 +59,7 @@ export default function SponsorshipAmbassadorsPage() {
           </Link>
 
           {/* AMBASSADORS Section - Clickable */}
-          <Link href="/pages/ambassadors" className="relative h-screen block group cursor-pointer">
+          <Link href="/pages/ambassadors" className="relative h-[70vh] md:h-[75vh] lg:h-[70vh] xl:h-[75vh] block group cursor-pointer">
             <div className="bg-gradient-to-b from-blue-100 to-white relative flex flex-col h-full transition-transform group-hover:scale-[1.02]">
               {/* Grid pattern overlay for this section */}
               <div 
@@ -74,14 +74,14 @@ export default function SponsorshipAmbassadorsPage() {
               />
               
               {/* Image Container - fills most of the space */}
-              <div className="relative flex-1 w-full flex items-center justify-center p-6 md:p-8 lg:p-12 xl:p-16">
+              <div className="relative flex-1 w-full flex items-center justify-center p-6 md:p-8 lg:p-10 xl:p-12">
                 <div className="relative w-full h-full">
                   <Image
                     src="https://momentpickleball.com/cdn/shop/files/Hawk_Venek_814x_crop_center.jpg?v=1717504161"
                     alt="Ambassadors"
                     fill
                     className="object-contain object-center"
-                    sizes="50vw"
+                    sizes="(max-width: 1024px) 50vw, 45vw"
                     priority
                   />
                 </div>
