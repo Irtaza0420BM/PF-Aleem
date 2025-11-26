@@ -33,7 +33,7 @@ export function Footer() {
 
           {/* Products/Social Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-yellow-400">Products/Social</h3>
+            <h3 className="font-bold text-lg mb-4 text-[#fdfe06]">Products/Social</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/collections/training-playing-products" className="hover:text-yellow-400 transition-colors inline-block">
@@ -75,7 +75,7 @@ export function Footer() {
 
           {/* Company Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-yellow-400">Company</h3>
+            <h3 className="font-bold text-lg mb-4 text-[#fdfe06]">Company</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/pages/about" className="hover:text-yellow-400 transition-colors inline-block">
@@ -102,7 +102,7 @@ export function Footer() {
                   href="https://www.pickleflowmindset.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-yellow-400 hover:text-yellow-300 transition-colors inline-block"
+                  className="text-[#fdfe06] hover: transition-colors inline-block"
                 >
                   PickleFlow Mindset Training
                 </Link>
@@ -112,13 +112,8 @@ export function Footer() {
 
           {/* Support Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-yellow-400">Support</h3>
+            <h3 className="font-bold text-lg mb-4 text-[#fdfe06]">Support</h3>
             <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link href="/pages/shipping" className="hover:text-yellow-400 transition-colors inline-block">
-                  Shipping Policy
-                </Link>
-              </li>
               <li>
                 <Link href="/pages/refund" className="hover:text-yellow-400 transition-colors inline-block">
                   Refund Policy
@@ -130,8 +125,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pages/terms" className="hover:text-yellow-400 transition-colors inline-block">
-                  Terms of Service
+                <Link href="/pages/moment" className="hover:text-yellow-400 transition-colors inline-block">
+                  Moment Mindset
+                </Link>
+              </li>
+              <li>
+                <Link href="/pages/performance" className="hover:text-yellow-400 transition-colors inline-block">
+                  Performance Program
                 </Link>
               </li>
             </ul>

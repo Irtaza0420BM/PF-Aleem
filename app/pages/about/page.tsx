@@ -105,10 +105,10 @@ I don't just want Moment to be known for great products. I want it to be known a
   ]
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold mb-8 text-center text-yellow-400">About Moment Pickleball</h1>
+          <h1 className="text-5xl font-bold mb-8 text-center text-[#fdfe06]">About Moment Pickleball</h1>
 
           <div className="prose prose-lg prose-invert mx-auto">
             <p className="text-xl leading-relaxed mb-6">
@@ -116,21 +116,21 @@ I don't just want Moment to be known for great products. I want it to be known a
               innovative products that seamlessly combine skill development with the joy of pickleball.
             </p>
 
-            <h2 className="text-3xl font-bold mt-12 mb-6 text-yellow-400">Our Story</h2>
+            <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fdfe06]">Our Story</h2>
             <p className="text-lg leading-relaxed mb-6">
               Founded by passionate pickleball players, we recognized a gap in the market for training equipment that
               not only improves skills but also keeps the fun alive. Our innovative approach combines mind-body wellness
               principles with competitive gameplay to create a holistic pickleball experience.
             </p>
 
-            <h2 className="text-3xl font-bold mt-12 mb-6 text-yellow-400">Our Mission</h2>
+            <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fdfe06]">Our Mission</h2>
             <p className="text-lg leading-relaxed mb-6">
               We're dedicated to serving all players—from beginners taking their first steps onto the court to
               competitive athletes seeking that extra edge. Every product we create is designed with intention, quality,
               and the player's growth in mind.
             </p>
 
-            <h2 className="text-3xl font-bold mt-12 mb-6 text-yellow-400">Community First</h2>
+            <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fdfe06]">Community First</h2>
             <p className="text-lg leading-relaxed mb-6">
               Beyond products, we're building a vibrant community of pickleball enthusiasts who share our passion for
               the sport. Through our ambassador program, social channels, and events, we're creating connections that
@@ -140,9 +140,9 @@ I don't just want Moment to be known for great products. I want it to be known a
         </div>
       </div>
 
-      <section className="py-20 bg-yellow-400">
+      <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center text-black">Make Every Moment Count</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center text-[#fdfe06]">Make Every Moment Count</h2>
           <p className="text-lg text-center mb-12 max-w-4xl mx-auto leading-relaxed text-gray-900 font-medium">
             We believe pickleball is more than just a game—it's about the people you meet, the confidence you build, and the joy you find in every rally. Whether you're training hard, connecting with community, or just having fun, we're here to help you make the most of every moment on and off the court.
           </p>
@@ -223,11 +223,11 @@ I don't just want Moment to be known for great products. I want it to be known a
         </div>
       </section>
 
-      <section id="founder-qa" className="py-20 bg-black">
+      <section id="founder-qa" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="mb-12 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-yellow-400">In the Moment</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#fdfe06]">In the Moment</h2>
               <p className="text-2xl md:text-3xl text-white font-medium">Q&A with Founder Scott Weiss</p>
             </div>
 
