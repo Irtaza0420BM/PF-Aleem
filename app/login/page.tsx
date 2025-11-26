@@ -14,21 +14,21 @@ export default async function LoginPage() {
     <div className="min-h-screen bg-black flex items-center justify-center py-12 px-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-2">Welcome Back</h1>
-          <p className="text-gray-400">Sign in to your account</p>
+          <h1 className="text-4xl font-bold text-[#fdfe06] mb-2">Welcome Back</h1>
+          <p className="text-[#fdfe06]">Sign in to your account</p>
         </div>
 
         <LoginForm />
 
         <div className="text-center space-y-2">
-          <p className="text-gray-400">
+          <p className="text-[#fdfe06]">
             Don't have an account?{" "}
-            <Link href="/register" className="text-yellow-400 hover:text-yellow-300 font-semibold">
+            <Link href="/register" className="text-[#fdfe06] hover:text-yellow-300 font-semibold">
               Sign up
             </Link>
           </p>
           <p className="text-gray-400">
-            <Link href="/forgot-password" className="text-yellow-400 hover:text-yellow-300 text-sm">
+            <Link href="/forgot-password" className="text-[#fdfe06] hover:text-yellow-300 text-sm">
               Forgot your password?
             </Link>
           </p>

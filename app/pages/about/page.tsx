@@ -1,3 +1,5 @@
+// 
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -143,7 +145,7 @@ I don't just want Moment to be known for great products. I want it to be known a
       <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center text-[#fdfe06]">Make Every Moment Count</h2>
-          <p className="text-lg text-center mb-12 max-w-4xl mx-auto leading-relaxed text-gray-900 font-medium">
+          <p className="text-lg text-center mb-12 max-w-4xl mx-auto leading-relaxed text-gray-300 font-medium">
             We believe pickleball is more than just a game—it's about the people you meet, the confidence you build, and the joy you find in every rally. Whether you're training hard, connecting with community, or just having fun, we're here to help you make the most of every moment on and off the court.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -217,6 +219,35 @@ I don't just want Moment to be known for great products. I want it to be known a
                 <p className="text-sm leading-relaxed text-center">
                   Proud partner of the University of Colorado Boulder Pickleball Team, working together on events, player development, and campus initiatives that grow the game and support student-athletes on and off the court.
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Meet Our Founder Section */}
+          <div className="max-w-4xl mx-auto mt-12">
+            <div className="bg-black text-white rounded-lg p-8 shadow-xl hover:shadow-2xl transition-shadow">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="relative w-48 h-48 flex-shrink-0 rounded-full overflow-hidden">
+                  <Image
+                    src="/images/founder.jpg"
+                    alt="Scott Weiss - Founder and CEO"
+                    fill
+                    className="object-cover"
+                    sizes="192px"
+                  />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-[#fdfe06] mb-4">Meet Our Founder</h3>
+                  <p className="text-base leading-relaxed mb-4">
+                    Founder and CEO Scott Weiss started Moment Pickleball in 2023 as a vehicle to help players grow their game—and to build something bigger: genuine connection and better tools for the pickleball community. Through innovative gear, mental-health–focused initiatives, athlete mentorship from college clubs to local Pros, his work leads to one goal: making every moment on the court more meaningful.
+                  </p>
+                  <Link 
+                    href="#founder-qa"
+                    className="inline-block text-[#fdfe06] hover:text-yellow-300 font-semibold underline"
+                  >
+                    Read a Q + A session with Moment's CEO
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
