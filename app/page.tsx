@@ -16,12 +16,12 @@ export default async function Home() {
 
   const [magicPickleball, ...giftGuideProducts] = await Promise.all([
     getProduct('magic-pickleball'), // Magic Pickleball by handle
-    getCollectionProducts({ collection: 'bundles', limit: 1 }), // Balance Board
-    getCollectionProducts({ collection: 'training-playing-products', limit: 2 }), // MW-PRO Bag & Mini Paddle
+    getCollectionProducts({ collection: 'bundles', limit: 2 }), // Balance Board
+    getCollectionProducts({ collection: 'training-playing-products', limit: 3 }), // MW-PRO Bag & Mini Paddle
     getCollectionProducts({ collection: 'hoodies', limit: 2 }), // Two hoodies
   ])
 
-  const flatGiftProducts = giftGuideProducts.flat().slice(0, 4) // Get 4 products for other items
+  const flatGiftProducts = giftGuideProducts.flat().slice(0, 6) // Get 4 products for other items
 
   return (
     <div className="bg-gray-900">
