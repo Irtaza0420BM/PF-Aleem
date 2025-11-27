@@ -7,32 +7,35 @@ export function Footer() {
     <footer className="bg-black text-white">
       <div className="bg-gradient-to-r from-red-900/20 to-green-900/20 border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 text-center">
-  <div className="flex items-center justify-center gap-2 mb-1">
-    <Snowflake className="w-6 h-6 text-blue-400 animate-pulse" />
-    <p className="text-xl text-gray-200 font-semibold">Happy Holidays from Moment Pickleball</p>
-    <Snowflake className="w-6 h-6 text-blue-400 animate-pulse" />
-  </div>
-  <p className="text-lg text-gray-400">Order by December 20th for holiday delivery</p>
-</div>
+          <div className="flex items-center justify-center gap-2 mb-1">
+            <Snowflake className="w-6 h-6 text-blue-400 animate-pulse" />
+            <p className="text-xl text-gray-200 font-semibold">Happy Holidays from Moment Pickleball</p>
+            <Snowflake className="w-6 h-6 text-blue-400 animate-pulse" />
+          </div>
+          <p className="text-lg text-gray-400">Order by December 20th for holiday delivery</p>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-          {/* Logo Column */}
-          <div className="flex flex-col items-start justify-start">
+        {/* Logo - Top left on desktop, centered on mobile */}
+        <div className="mb-12">
+          <div className="flex justify-center md:justify-start">
             <Link href="/" className="inline-block">
               <Image
                 src="/images/moment-logo-yellow.png"
                 alt="Moment Pickleball"
-                width={200}
-                height={80}
-                className="h-16 w-auto"
+                width={300}
+                height={120}
+                className="h-24 md:h-32 lg:h-40 w-auto"
               />
             </Link>
           </div>
+        </div>
 
-          {/* Products/Social Column */}
-          <div>
+        {/* Three Columns - Stack on mobile, side by side on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
+          {/* Products/Social Column - Left */}
+          <div className="text-center md:text-left">
             <h3 className="font-bold text-lg mb-4 text-[#fdfe06]">Products/Social</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -73,8 +76,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company Column */}
-          <div>
+          {/* Company Column - Center */}
+          <div className="text-center md:text-left">
             <h3 className="font-bold text-lg mb-4 text-[#fdfe06]">Company</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -88,7 +91,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pages/affiliate" className="hover:text-yellow-400 transition-colors inline-block">
+                <Link href="/pages/blogs" className="hover:text-yellow-400 transition-colors inline-block">
                   Blog
                 </Link>
               </li>
@@ -102,7 +105,7 @@ export function Footer() {
                   href="https://www.pickleflowmindset.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#fdfe06] hover: transition-colors inline-block"
+                  className="text-[#fdfe06] hover:text-yellow-400 transition-colors inline-block"
                 >
                   PickleFlow Mindset Training
                 </Link>
@@ -110,8 +113,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support Column */}
-          <div>
+          {/* Support Column - Right */}
+          <div className="text-center md:text-left">
             <h3 className="font-bold text-lg mb-4 text-[#fdfe06]">Support</h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -122,11 +125,6 @@ export function Footer() {
               <li>
                 <Link href="/pages/privacy" className="hover:text-yellow-400 transition-colors inline-block">
                   Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/pages/moment" className="hover:text-yellow-400 transition-colors inline-block">
-                  Moment Mindset
                 </Link>
               </li>
               <li>

@@ -22,7 +22,7 @@ export async function Header() {
   return (
     <>
       <HolidayBanner />
-      <header className="border-b-4 bg-black border-yellow-400 sticky top-0 z-50 shadow-xl">
+      <header className="border-b-4 bg-black border-[#fdfe06] sticky top-0 z-50 shadow-xl">
         <div className="w-full px-3 sm:px-4 py-3 mx-auto">
           
           {/* 📱 MOBILE LAYOUT (up to md) - Hamburger | Logo | Cart */}

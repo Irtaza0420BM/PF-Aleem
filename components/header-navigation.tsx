@@ -1,5 +1,3 @@
-// 
-
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -118,22 +116,26 @@ export function HeaderNavigation({ collections }: HeaderNavigationProps) {
       {/* About */}
       <Link 
         href="/pages/about" 
-        className="relative px-2 lg:px-3 py-1.5 text-xs lg:text-sm bg-black text-[#fdfe06] font-semibold rounded transition-all group whitespace-nowrap"
+        className="relative px-2 lg:px-3 py-1.5 text-xs lg:text-sm bg-black text-[#fdfe06] font-semibold rounded transition-all group whitespace-nowrap inline-block"
       >
-        About
+        <span className="relative z-10 group-hover:text-white transition-colors">About</span>
+        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-white w-0 group-hover:w-[calc(100%-1rem)] transition-all duration-300"></span>
       </Link>
 
-      {/* Contact with dropdown - HOVER TO OPEN, NO BORDER */}
+      {/* Contact with dropdown - HOVER TO OPEN */}
       <div 
         className="relative z-50" 
         ref={contactDropdownRef}
         onMouseEnter={() => setContactDropdownOpen(true)}
         onMouseLeave={() => setContactDropdownOpen(false)}
       >
-        <div className="px-2 lg:px-3 py-1.5 text-xs lg:text-sm bg-black text-[#fdfe06] font-semibold rounded flex items-center gap-1 cursor-pointer group">
-          Contact
-          <ChevronDown className="h-3 w-3" />
-        </div>
+        <Link
+          href="/pages/contact"
+          className="px-2 lg:px-3 py-1.5 text-xs lg:text-sm bg-black text-[#fdfe06] font-semibold rounded flex items-center gap-1 group transition-all whitespace-nowrap"
+        >
+          <span className="relative z-10 group-hover:text-white transition-colors">Contact</span>
+          <ChevronDown className="h-3 w-3 group-hover:text-white transition-colors" />
+        </Link>
 
         {contactDropdownOpen && (
           <div className="absolute top-full left-0 mt-0 bg-black rounded shadow-xl min-w-[200px] z-50">

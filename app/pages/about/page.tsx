@@ -1,5 +1,7 @@
 // 
 
+
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -241,12 +243,6 @@ I don't just want Moment to be known for great products. I want it to be known a
                   <p className="text-base leading-relaxed mb-4">
                     Founder and CEO Scott Weiss started Moment Pickleball in 2023 as a vehicle to help players grow their game—and to build something bigger: genuine connection and better tools for the pickleball community. Through innovative gear, mental-health–focused initiatives, athlete mentorship from college clubs to local Pros, his work leads to one goal: making every moment on the court more meaningful.
                   </p>
-                  <Link 
-                    href="#founder-qa"
-                    className="inline-block text-[#fdfe06] hover:text-yellow-300 font-semibold underline"
-                  >
-                    Read a Q + A session with Moment's CEO
-                  </Link>
                 </div>
               </div>
             </div>
@@ -262,17 +258,18 @@ I don't just want Moment to be known for great products. I want it to be known a
               <p className="text-2xl md:text-3xl text-white font-medium">Q&A with Founder Scott Weiss</p>
             </div>
 
-            <Accordion type="single" collapsible className="space-y-4">
+               <Accordion type="single" collapsible className="space-y-4 ">
               {qAndA.map((item, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border border-yellow-400 rounded-lg px-6 hover:border-yellow-300 transition-colors bg-gray-900"
+                  className={`border rounded-lg px-6 hover:border-yellow-300 transition-colors bg-gray-900`}
+                  style={index === qAndA.length - 1 ? { borderColor: '#fdfe06', borderWidth: '1px', borderBottomWidth: '1px' } : { borderColor: '#fdfe06', borderWidth: '1px' }}
                 >
-                  <AccordionTrigger className="text-left text-lg font-semibold text-white hover:text-yellow-400 py-6">
+                  <AccordionTrigger className="text-left text-lg font-semibold text-white hover:text-[#fdfe06] py-6">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-300 leading-relaxed pb-6 whitespace-pre-line">
+                  <AccordionContent className="text-gray-300 leading-relaxed pb-6 whitespace-pre-line ">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>
