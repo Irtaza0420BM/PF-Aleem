@@ -1,13 +1,20 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Sparkles, Users, Gift, Camera, TreePine, Snowflake } from 'lucide-react'
-import { useState, useEffect } from "react"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  Sparkles,
+  Users,
+  Gift,
+  Camera,
+  TreePine,
+  Snowflake,
+} from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function MagicPickleballPage() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const lifestyleImages = [
     {
@@ -30,21 +37,21 @@ export default function MagicPickleballPage() {
       url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6736.JPG-O2gDs1yCOocvIZY1oG5TJg0NuO16Wa.jpeg",
       alt: "Player with Magic Pickleball package",
     },
-  ]
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % lifestyleImages.length)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [lifestyleImages.length])
+      setCurrentSlide((prev) => (prev + 1) % lifestyleImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [lifestyleImages.length]);
 
   return (
     <div className="bg-white">
       <section className="relative bg-black text-white py-20 md:py-32 overflow-hidden">
         {/* Christmas badge */}
         <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
-          <div className="bg-yellow-400 text-black px-6 py-2 rounded-full font-bold text-sm md:text-base shadow-lg flex items-center gap-2">
+          <div className="bg-[#fdfe06] text-black px-6 py-2 rounded-full font-bold text-sm md:text-base shadow-lg flex items-center gap-2">
             <TreePine className="w-5 h-5" />
             PERFECT CHRISTMAS GIFT
             <Gift className="w-5 h-5" />
@@ -56,8 +63,12 @@ export default function MagicPickleballPage() {
           <Snowflake className="absolute top-20 left-[10%] w-8 h-8 text-yellow-400 animate-pulse" />
           <Snowflake className="absolute top-[15%] right-[12%] w-6 h-6 text-yellow-400 animate-pulse delay-100" />
           <Snowflake className="absolute bottom-32 left-[25%] w-7 h-7 text-yellow-400 animate-pulse delay-200" />
-          <div className="absolute top-[25%] right-[25%] text-yellow-400 text-3xl animate-pulse delay-200">✦</div>
-          <div className="absolute top-[70%] left-[40%] text-yellow-400 text-2xl animate-pulse">⭐</div>
+          <div className="absolute top-[25%] right-[25%] text-yellow-400 text-3xl animate-pulse delay-200">
+            ✦
+          </div>
+          <div className="absolute top-[70%] left-[40%] text-yellow-400 text-2xl animate-pulse">
+            ⭐
+          </div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -66,15 +77,15 @@ export default function MagicPickleballPage() {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-balance">
                 A Magically Picklicious Holiday!
               </h1>
-              <p className="text-2xl md:text-3xl font-bold text-yellow-400">
+              <p className="text-2xl md:text-3xl font-bold text-[#fdfe06]">
                 Are you game to serve up some whimsy wisdom?
               </p>
               <p className="text-xl md:text-2xl text-gray-300 max-w-xl leading-relaxed">
-                A playful fortune-telling pickleball that sparks laughter, breaks the ice, and adds magic to every game
-                and gathering.
+                A playful fortune-telling pickleball that sparks laughter,
+                breaks the ice, and adds magic to every game and gathering.
               </p>
-              <div className="bg-yellow-400/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400">
-                <p className="text-lg font-bold text-yellow-400">
+              <div className="bg-yellow-400/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-[#fdfe06]">
+                <p className="text-lg font-bold text-[#fdfe06]">
                   The PERFECT stocking stuffer—order now before they're gone!
                 </p>
               </div>
@@ -82,9 +93,11 @@ export default function MagicPickleballPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+                  className="bg-[#fdfe06] hover:bg-[#e7e805] text-black font-bold px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
                 >
-                  <Link href="#buy">Get The Perfect Christmas Gift—Shop Now!</Link>
+                  <Link href="#buy">
+                    Get The Perfect Christmas Gift—Shop Now!
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -105,7 +118,7 @@ export default function MagicPickleballPage() {
         </div>
       </section>
 
-      <section className="py-6 bg-yellow-400 text-black">
+      <section className="py-6 bg-[#fdfe06] text-black">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-xl md:text-2xl font-bold">
@@ -119,8 +132,12 @@ export default function MagicPickleballPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">See The Magic in Action</h2>
-              <p className="text-xl text-gray-600">Real players, real fun, real magic</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+                See The Magic in Action
+              </h2>
+              <p className="text-xl text-gray-600">
+                Real players, real fun, real magic
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -156,23 +173,27 @@ export default function MagicPickleballPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 text-center">What Is The Magic Pickleball?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 text-center">
+              What Is The Magic Pickleball?
+            </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p className="text-2xl font-bold text-black text-center">
                 Think of it as a Magic 8 Ball with a whole new spin—literally.
               </p>
               <p>
-                The Magic Pickleball is a neon-yellow, game-ready pickleball with a hidden message window built right
-                in. Ask it a question, give it a playful shake, and one of 20 cheeky, pickleball-inspired answers will
-                spin into view.
+                The Magic Pickleball is a neon-yellow, game-ready pickleball
+                with a hidden message window built right in. Ask it a question,
+                give it a playful shake, and one of 20 cheeky,
+                pickleball-inspired answers will spin into view.
               </p>
               <p>
-                It's part conversation spark, part courtside oracle, and all about fun. Use it to decide who serves,
-                call out playful "fates" before a rally, or keep the laughs rolling after the last game.
+                It's part conversation spark, part courtside oracle, and all
+                about fun. Use it to decide who serves, call out playful "fates"
+                before a rally, or keep the laughs rolling after the last game.
               </p>
               <p className="font-bold text-black text-xl text-center">
-                Whenever it comes out of the bag, The Magic Pickleball turns ordinary play into a little bit of
-                pickleball magic. ✨
+                Whenever it comes out of the bag, The Magic Pickleball turns
+                ordinary play into a little bit of pickleball magic. ✨
               </p>
             </div>
           </div>
@@ -187,14 +208,15 @@ export default function MagicPickleballPage() {
                 The Joy Is Real, The Smiles Are Magic
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                Watch faces light up when The Magic Pickleball makes an appearance. From kids to pros, everyone wants to
-                know what it'll say next.
+                Watch faces light up when The Magic Pickleball makes an
+                appearance. From kids to pros, everyone wants to know what it'll
+                say next.
               </p>
             </div>
 
             {/* Carousel */}
             <div className="relative max-w-4xl mx-auto mb-12">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl bg-white border-4 border-yellow-400">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl bg-white border-4 border-[#fdfe06]">
                 {lifestyleImages.map((image, index) => (
                   <div
                     key={index}
@@ -220,7 +242,9 @@ export default function MagicPickleballPage() {
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`h-3 rounded-full transition-all ${
-                      index === currentSlide ? "bg-yellow-400 w-10" : "bg-gray-300 hover:bg-gray-400 w-3"
+                      index === currentSlide
+                        ? "bg-[#fdfe06] w-10"
+                        : "bg-gray-300 hover:bg-gray-400 w-3"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -232,18 +256,30 @@ export default function MagicPickleballPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white rounded-2xl p-8 text-center shadow-lg border-2 border-gray-100">
                 <div className="text-5xl mb-4">😂</div>
-                <h3 className="font-bold text-black text-xl mb-2">Instant Laughter</h3>
-                <p className="text-gray-600">Every shake sparks giggles and good vibes</p>
+                <h3 className="font-bold text-black text-xl mb-2">
+                  Instant Laughter
+                </h3>
+                <p className="text-gray-600">
+                  Every shake sparks giggles and good vibes
+                </p>
               </div>
               <div className="bg-white rounded-2xl p-8 text-center shadow-lg border-2 border-gray-100">
                 <div className="text-5xl mb-4">📸</div>
-                <h3 className="font-bold text-black text-xl mb-2">Social Gold</h3>
-                <p className="text-gray-600">Perfect for photos, videos, and viral moments</p>
+                <h3 className="font-bold text-black text-xl mb-2">
+                  Social Gold
+                </h3>
+                <p className="text-gray-600">
+                  Perfect for photos, videos, and viral moments
+                </p>
               </div>
               <div className="bg-white rounded-2xl p-8 text-center shadow-lg border-2 border-gray-100">
                 <div className="text-5xl mb-4">🎁</div>
-                <h3 className="font-bold text-black text-xl mb-2">Gift-Ready Fun</h3>
-                <p className="text-gray-600">Everyone wants one after they see it in action</p>
+                <h3 className="font-bold text-black text-xl mb-2">
+                  Gift-Ready Fun
+                </h3>
+                <p className="text-gray-600">
+                  Everyone wants one after they see it in action
+                </p>
               </div>
             </div>
           </div>
@@ -253,7 +289,9 @@ export default function MagicPickleballPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-6">Perfect For...</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-6">
+              Perfect For...
+            </h2>
             <p className="text-center text-gray-600 mb-12 text-xl">
               From Christmas parties to everyday play—celebrate the season!
             </p>
@@ -301,14 +339,18 @@ export default function MagicPickleballPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-block bg-yellow-400 text-black px-6 py-2 rounded-full font-bold text-sm mb-6">
+              <div className="inline-block bg-[#fdfe06] text-black px-6 py-2 rounded-full font-bold text-sm mb-6">
                 ORDER NOW FOR CHRISTMAS DELIVERY
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Get Your Magic Pickleball</h2>
-              <p className="text-xl text-gray-300">The gift that keeps on giving—all season long!</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Get Your Magic Pickleball
+              </h2>
+              <p className="text-xl text-gray-300">
+                The gift that keeps on giving—all season long!
+              </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 border-2 border-yellow-400">
+            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 border-2 border-[#fdfe06]">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                   <Image
@@ -321,37 +363,57 @@ export default function MagicPickleballPage() {
                 </div>
                 <div className="space-y-8">
                   <div>
-                    <p className="text-6xl font-bold mb-2 text-yellow-400">$24.99</p>
-                    <p className="text-yellow-400 font-bold text-lg">
+                    <p className="text-6xl font-bold mb-2 text-[#fdfe06]">
+                      $24.99
+                    </p>
+                    <p className="text-[#fdfe06] font-bold text-lg">
                       Limited Christmas Stock Available!
                     </p>
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <span className="text-yellow-400 text-2xl flex-shrink-0">✓</span>
-                      <span className="text-lg">20 hilarious pickleball-themed answers</span>
+                      <span className="text-[#fdfe06] text-2xl flex-shrink-0">
+                        ✓
+                      </span>
+                      <span className="text-lg">
+                        20 hilarious pickleball-themed answers
+                      </span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-yellow-400 text-2xl flex-shrink-0">✓</span>
-                      <span className="text-lg">Premium quality construction</span>
+                      <span className="text-[#fdfe06] text-2xl flex-shrink-0">
+                        ✓
+                      </span>
+                      <span className="text-lg">
+                        Premium quality construction
+                      </span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-yellow-400 text-2xl flex-shrink-0">✓</span>
-                      <span className="text-lg">Perfect for all ages and skill levels</span>
+                      <span className="text-[#fdfe06] text-2xl flex-shrink-0">
+                        ✓
+                      </span>
+                      <span className="text-lg">
+                        Perfect for all ages and skill levels
+                      </span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-yellow-400 text-2xl flex-shrink-0">🎁</span>
-                      <span className="text-lg font-semibold">Gift-ready packaging—no wrapping needed!</span>
+                      <span className="text-[#fdfe06] text-2xl flex-shrink-0">
+                        🎁
+                      </span>
+                      <span className="text-lg font-semibold">
+                        Gift-ready packaging—no wrapping needed!
+                      </span>
                     </div>
                   </div>
 
                   <Button
                     asChild
                     size="lg"
-                    className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all"
+                    className="w-full bg-[#fdfe06] hover:bg-yellow-300 text-black font-bold py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all"
                   >
-                    <Link href="/collections/all">Give The Gift of Magic This Christmas!</Link>
+                    <Link href="/collections/all">
+                      Give The Gift of Magic This Christmas!
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -360,27 +422,32 @@ export default function MagicPickleballPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-yellow-400 text-black">
+      <section className="py-20 md:py-28 bg-[#fdfe06] text-black">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold">Your Pickleball Destiny Awaits</h2>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Your Pickleball Destiny Awaits
+            </h2>
             <p className="text-xl">
-              Make this Christmas unforgettable. Get yours today and start creating magical moments on and off the
-              court!
+              Make this Christmas unforgettable. Get yours today and start
+              creating magical moments on and off the court!
             </p>
             <Button
               asChild
               size="lg"
               className="bg-black hover:bg-gray-900 text-white font-bold px-10 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all"
             >
-              <Link href="/collections/all">Order Now For Christmas Delivery!</Link>
+              <Link href="/collections/all">
+                Order Now For Christmas Delivery!
+              </Link>
             </Button>
             <p className="text-sm text-black/70 pt-4">
-              Limited Christmas stock • Fast shipping • Gift-ready packaging • 100% pickleball magic guaranteed
+              Limited Christmas stock • Fast shipping • Gift-ready packaging •
+              100% pickleball magic guaranteed
             </p>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }

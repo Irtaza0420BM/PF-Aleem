@@ -27,7 +27,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
             {/* Left side - Hero Carousel */}
             <div className="space-y-3 sm:space-y-4 flex justify-center md:justify-start">
-              <div className="relative h-[350px] sm:h-[400px] md:h-[480px] lg:h-[550px] xl:h-[600px] w-full max-w-[350px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px] rounded-lg overflow-hidden border-2 sm:border-3 md:border-4 border-yellow-400 shadow-2xl aspect-[4/5]">
+              <div className="relative h-[350px] sm:h-[400px] md:h-[480px] lg:h-[550px] xl:h-[600px] w-full max-w-[350px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px] rounded-lg overflow-hidden border-2 sm:border-3 md:border-4 border-[#fdfe06] shadow-2xl aspect-[4/5]">
              
              <div className="hero-carousel">
   <Image
@@ -101,7 +101,7 @@ export default async function Home() {
           </div>
           
           <div className="mt-6 sm:mt-8 md:mt-12 grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
+            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-[#fdfe06] sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unnamed-1-2Gkd8IELF0zVYlGc4UkmWfFt2wJr49.jpg"
                 alt="Inside view of organized backpack"
@@ -109,7 +109,7 @@ export default async function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
+            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-[#fdfe06] sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unnamed-yZVoHdHw9Zr0CpxUhTbXyenQbZ2zNN.jpg"
                 alt="Moment backpack with full gear setup"
@@ -117,7 +117,7 @@ export default async function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
+            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-[#fdfe06] sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_11-pptyXq1O1miAb1388VaFIMJYlH54o3.jpg"
                 alt="Player organizing backpack on court"
@@ -125,7 +125,7 @@ export default async function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
+            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-[#fdfe06] sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PickleBall_Pack_10-JDZX6i64twaXZPBtADSbFRRQFvaIsv.jpg"
                 alt="Backpack with Moment branding"
@@ -133,7 +133,7 @@ export default async function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
+            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-[#fdfe06] sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pickleball_Action_2048_08-pJ0yLUlWbW1oKH5XQcXldo00aBpQZb.jpg"
                 alt="Player with Moment gear"
@@ -141,7 +141,7 @@ export default async function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-yellow-400 sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
+            <div className="relative h-20 sm:h-24 md:h-28 lg:h-32 rounded-md overflow-hidden border border-[#fdfe06] sm:border-2 hover:border-yellow-300 transition-colors cursor-pointer">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pickleball_Action_2048_29-EBWz3lBFS7SXozEggQMylpC88PPlQe.jpg"
                 alt="Action gameplay shot"
@@ -156,7 +156,7 @@ export default async function Home() {
       <section className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16 bg-gray-900">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">Featured Products</h2>
-          <Button asChild variant="outline" className="border-2 border-yellow-400 hover:bg-yellow-400 hover:text-black bg-transparent text-white font-bold text-sm sm:text-base">
+          <Button asChild variant="outline" className="border-2 border-[#fdfe06] hover:bg-[#fdfe06] hover:text-black bg-transparent text-white font-bold text-sm sm:text-base">
             <Link href="/collections/all">View All</Link>
           </Button>
         </div>
@@ -248,7 +248,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="bg-gray-900 py-6 sm:py-8 border-y-2 sm:border-y-3 md:border-y-4 border-yellow-400">
+      <section className="bg-gray-900 py-6 sm:py-8 border-y-2 sm:border-y-3 md:border-y-4 border-[#fdfe06]">
         <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center mb-4 sm:mb-5 md:mb-6">
             <div className="inline-block p-1.5 sm:p-2 bg-white rounded-full shadow-xl mb-2 sm:mb-3">
@@ -320,7 +320,7 @@ export default async function Home() {
            asChild
            size="lg"
            style={{ backgroundColor: '#fdfe06' }}
-           className="hover:bg-yellow-500 text-black font-bold px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg w-full sm:w-auto"
+           className="hover:bg-yellow-400 text-black font-bold px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg w-full sm:w-auto"
            >
            <Link href="/magic-pickleball">Discover The Magic Pickleball</Link>
            </Button>
